@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <style>
+
+  body{
+    color{};
+    background-image: url('/public/background.jpg');
+  }
+
+
+  ul{
+    width: 500px;
+  }
+
+  li{
+    width: 150px;
+    text-align: center;
+  }
+
+  .home{
+     text-align: center;
+     color: #2b3463;
+     font-size: 2rem;
+     width: 500px;
+     margin: 0 auto;
+     margin-top: 17%;
+  }
+
+  .info{
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  </style>
+
+</head>
+
+<body onload = "load()">
+
+  <!--Main Navigation-->
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-dark indigo">
+    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/log">Log in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/singup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div style="background: red; width: 70px">
+   <p><a href="/logout" class="href">
+       Log Out</a></p>
+ </div>
+
+<div class="home">
+  <h1>Welcome to your home page!</h1>
+</div>
+<div id = "result"></div>
+<form id = "myForm" name = "myForm">
+  <input type="text" name="name" id = "formName" value =  ''>
+  <button class="btn btn-primary" type="submit">Log in</button>
+</form>
+ <div class="info">
+  <div id="name" name = "name"><div>
+</div>
+
+
+<script>
+  var get = location.search.substr(1);
+  document.getElementById('formName').value = document.getElementById('name').innerHTML = get;
+</script>
+
+         <script>
+         $(document).ready(function(){
+             $.ajax({
+               url : '/getDb',
+               type : 'POST',
+               dataType : 'text',
+               data: $('#myForm').serialize(),
+               success: function(data){
+                  alert(data);
+               }
+             });
+       })
+         </script>
+<!--Main Navigation-->
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Log In</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+
+   <style>
+    body{
+      background-image: url('/public/background.jpg');
+    }
+
+   .form{
+     width: 350px;
+     margin: 10% auto;
+   }
+
+   ul{
+     width: 600px;
+   }
+
+   li{
+     width: 150px;
+     text-align: center;
+   }
+
+   .md-form label{
+     color:#333333;
+   }
+
+   .navbar .nav-flex-icons{
+     width: 300px;
+   }
+
+   #success{
+     display: none;
+     width: 346px;
+     font-size: 16px;
+     margin: 10px auto;
+     color: white;
+     text-align: center;
+     background: #ff3547;
+     border-radius: 10px;
+   }
+
+   </style>
+
+</head>
+
+<body ng-app="myApp" ng-controller = "myController">
+
+  <!-- Card -->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark indigo">
+      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/log">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/singup">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/video">Video</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "/contact">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+        <div class="form">
+          <form id = "myForm">
+              <p class="h4 text-center py-4">Log in</p>
+
+              <div class="md-form">
+                  <i class="fa fa-user prefix black-text"></i>
+                  <input autofocus required type="text" id="materialFormCardNameEx" ng-model = "name" name = "username" class="form-control">
+                  <label for="materialFormCardNameEx">Your name</label>
+              </div>
+
+              <div class="md-form">
+                  <i class="fa fa-lock prefix black-text"></i>
+                  <input required type="password" id="materialFormCardPasswordEx" name="password" class="form-control">
+                  <label for="materialFormCardPasswordEx">Your password</label>
+              </div>
+            <div style = "float: right">
+
+               <a href="/forgotPassword">Forgot password?</a>
+           </div>
+              <div class="text-center py-4 mt-3">
+                  <button class="btn btn-primary" type="submit">Log in</button>
+              </div>
+              <div style = "text-align: center">Not a member?
+                  <a href="/singup">Register</a>
+              </div>
+          </form>
+            <p type = "text" id = "success"></p>
+        </div>
+
+          <script>
+          $('#myForm').submit(function(e) {
+               e.preventDefault();
+              $.ajax({
+                url : '/login',
+                type : 'POST',
+                dataType : 'text',
+                data : $(this).serialize(),
+                success: function(data){
+                  //alert(data);
+                  if(data == "err"){
+                    document.getElementById("success").style.display = 'block';
+                    $("#success").html('Username or Password is incorrect. Try again');
+                    setTimeout(function(){ $('#success').hide(); }, 3000);
+                    setTimeout(function(){ $('#success').show(); }, 500);
+                    setTimeout(function(){ document.getElementById("materialFormCardNameEx").value = ''; }, 3000);
+                    setTimeout(function(){ document.getElementById("materialFormCardPasswordEx").value = ''; }, 3000);
+                  }
+                  else {
+                    window.location.href = data + '?' + document.getElementById("materialFormCardNameEx").value;
+                  }
+                }
+
+              });
+
+          });
+          </script>
+
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript" src="js/popper.min.js"></script>
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/mdb.js"></script>
+</body>
+
+</html>

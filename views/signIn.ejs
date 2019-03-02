@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+
+   <style>
+    body{
+      background-image: url('/public/background.jpg');
+    }
+
+   .form{
+     width: 300px;
+     margin: 10% auto;
+   }
+
+   ul{
+     width: 600px;
+   }
+
+   li{
+     width: 150px;
+     text-align: center;
+   }
+
+   .server{
+     display: none;
+     color: white;
+     font-size: 18px;
+     border: 1px solid red;
+     margin: 0 auto;
+     background:  red;
+     border-radius: 10px;
+     text-align: center;
+   }
+
+   .md-form label{
+     color:#333333;
+   }
+
+   </style>
+
+</head>
+
+<body>
+
+  <!-- Card -->
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark indigo">
+      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/log">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/singup">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/video">Video</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "/contact">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+          <!-- Material form register -->
+          <form id = "myForm" class="form">
+              <p class="h4 text-center py-4">Log in</p>
+              <!-- Material input text -->
+              <div class="md-form">
+                  <i class="fa fa-user prefix black-text"></i>
+                  <input required type="text" id="materialFormCardNameEx" name = "username" class="form-control">
+                  <label for="materialFormCardNameEx">Your name</label>
+              </div>
+              <!-- Material input password -->
+              <div class="md-form">
+                  <i class="fa fa-lock prefix black-text"></i>
+                  <input required type="password" id="materialFormCardPasswordEx" name="password" class="form-control">
+                  <label for="materialFormCardPasswordEx">Your password</label>
+              </div>
+            <div style = "float: right">
+               <!-- Forgot password -->
+               <a href="/forgotPassword">Forgot password?</a>
+           </div>
+              <div class="text-center py-4 mt-3">
+                  <button class="btn btn-primary" type="submit">Log in</button>
+              </div>
+              <div style = "text-align: center">Not a member?
+                  <a href="/singup">Register</a>
+              </div>
+              <div class = "server" id = "server"></div>
+          </form>
+
+          <script>
+          $('#myForm').submit(function(e) {
+               e.preventDefault();
+              $.ajax({
+                url : '/login',
+                type : 'POST',
+                dataType : 'text',
+                data : $(this).serialize(),
+                success: function(data){
+                  alert(data);
+                  if(data == "err"){
+                    document.getElementById("server").style.display = 'block';
+                    $("#server").html('Username or Password is incorrect. Try again');
+                    setTimeout(function(){ $('#server').hide(); }, 3000);
+                    setTimeout(function(){ $('#server').show(); }, 500);
+                    //document.getElementById("defaultRegisterFormFirstName"). value = ''
+                    setTimeout(function(){ document.getElementById("materialFormCardNameEx").value = ''; }, 3000);
+                    setTimeout(function(){ document.getElementById("materialFormCardPasswordEx").value = ''; }, 3000);
+                  }
+                  else {
+                    if(data == '/home'){
+                      window.location.href = '/home?username=' + document.getElementById("materialFormCardNameEx").value;
+                    }
+                    else {
+                      window.location.href = data + '?username=' + document.getElementById("materialFormCardNameEx").value;
+                    }
+
+                  }
+                }
+
+              });
+
+          });
+          </script>
+          <!-- Material form register -->
+  <!-- Card -->
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.js"></script>
+</body>
+
+</html>
