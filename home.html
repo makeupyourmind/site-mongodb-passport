@@ -5,22 +5,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>Home Page</title>
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript" src="js/popper.min.js"></script>
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="js/mdb.js"></script>
   <!-- Font Awesome -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-  <!-- Bootstrap core CSS -->
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
+
   <link href="css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
+
   <link href="css/style.css" rel="stylesheet">
 
 
   <style>
 
   body{
-    color{};
+
     background-image: url('/public/background.jpg');
   }
 
@@ -192,15 +199,6 @@
     <br>
     <span>Your email : </span> <span id = "userEmail"></span>
   </div>
-  <!--<p>Загрузите ваши фотографии на сервер</p>
-  <img src = "" id = "get" width="90px" height="90px" class="avatar img-circle img-thumbnail" alt="avatar">
-  <p id = "photo"></p>
-<form id = "myForm2" enctype="multipart/form-data" encType="multipart/form-data">
-  <p><input type="file" id = "pic" name="pic" class = "file-upload" multiple accept="image/*,image/jpeg">
-  <input id = "file" type="submit" value="Отправить"></p>
-</form>-->
-
-
 
   <div class="del">
      <button id = "del" class="btn-sm btn-danger" type="submit">Delete account</button>
@@ -212,10 +210,9 @@
 <p id = "send">t</p>
 
 <script>
-
 function Validate(){
   var fileExtensions = ["jpg", "jpeg", "bmp", "gif", "png"];
-  //alert($('#pic').val());
+
   if($.inArray($('#pic').val().split('.').pop().toLowerCase(), fileExtensions) == -1 ){
     alert("Photo should be next extensions : .jpg, .jpeg, .bmp, .gif, .png");
     return false;
@@ -224,11 +221,10 @@ function Validate(){
 
     event.preventDefault();
 
-    //var formData = new FormData($(this)[0]);
     var formData = new FormData();
-    //alert($('#formName').text());
+
     var namePhoto = $('#userName').text();
-    //alert(pic.files[0]);
+
     formData.append('pic', pic.files[0], namePhoto + '.jpg');
 
         $.ajax({
@@ -240,9 +236,9 @@ function Validate(){
         contentType: false,
         processData: false,
         success: function (data) {
-          //alert(data);
+          //alert("data : " + data);
           $('#get').attr('src', data);
-          //alert($('#get').attr('src', data));
+
         },
         error: function(){
           alert('Error fomat');
@@ -261,7 +257,6 @@ event.preventDefault();
 
 var img = document.getElementById('get');
 var send = img.getAttribute('src');
-//alert(send);
 
   $.ajax({
   url: '/delPhoto',
@@ -280,67 +275,35 @@ var send = img.getAttribute('src');
 
 </script>
 
-<!--<script>
-$("#myForm2").submit(function(event){
-event.preventDefault();
-
-//var formData = new FormData($(this)[0]);
-var formData = new FormData();
-//alert($('#formName').text());
-var namePhoto = $('#userName').text();
-//alert(pic.files[0]);
-formData.append('pic', pic.files[0], namePhoto + '.jpg');
-
-    $.ajax({
-    url: '/upload',
-    type: 'POST',
-    data: formData,
-    async: false,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      alert(data);
-      $('#get').attr('src', data);
-      //alert($('#get').attr('src', data));
-    },
-    error: function(){
-      alert('Error fomat');
-    }
-
-});
-});
-</script>-->
-
-<!--<script>
-$(document).ready(function(){
-$('#get').attr('src', $('#userName').text() + '.jpg');
-})
-</script>
-
-<script>
-  var get = location.search.substr(1);
-  document.getElementById('formName').value = document.getElementById('name').innerHTML = get;
-</script>-->
 
 <script>
 $(document).ready(function(){
   var get = location.search.substr(1);
   document.getElementById('formName').value = document.getElementById('name').innerHTML = get;
   $('#get').attr('src', get + '.jpg');
+  $.ajax({
+    url : '/getDb',
+    type : 'POST',
+    dataType : 'json',
+    data: $('#myForm').serialize(),
+    success: function(data){
+       //alert(data.email);
+       document.getElementById('userName').innerHTML = data.username;
+       document.getElementById('userPassword').innerHTML = data.password;
+       document.getElementById('userEmail').innerHTML = data.email;
+    }
+  });
+  //$('#get').attr('src', get + '.jpg');
 })
 </script>
 
 
 <script>
 $('#del').click(function(e) {
-     e.preventDefault();
-
+e.preventDefault();
 var del = $('#myForm').serialize().split('=').pop();
-//alert(del);
 var img = document.getElementById('get');
 var send = img.getAttribute('src');
-//alert(img.getAttribute('src'));
     $.ajax({
       url : '/delete',
       type : 'POST',
@@ -352,11 +315,10 @@ var send = img.getAttribute('src');
       }
 
     });
-
 });
 </script>
-
-         <script>
+<!--ОТУТ -->
+        <!-- <script>
          $(document).ready(function(){
              $.ajax({
                url : '/getDb',
@@ -371,17 +333,9 @@ var send = img.getAttribute('src');
                }
              });
        })
-         </script>
-<!--Main Navigation-->
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.js"></script>
+     </script>-->
+
+
 </body>
 
 </html>

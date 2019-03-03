@@ -59,7 +59,8 @@ passport.authenticate('local', function(err, user) {
     if (err) {
       return next(err);
     }
-
+    //console.log("admin : " + user.username);
+    //console.log("admin : " + user.password);
     if(user.username == 'admin' && user.password == 'admin'){
       req.session.returnTo = '/admin';
       return res.send(req.session.returnTo);
@@ -70,6 +71,7 @@ passport.authenticate('local', function(err, user) {
         return res.send(req.session.returnTo);
       }
       else {
+        //req.session.returnTo = '/home';
         return res.send(req.session.returnTo);
       }
     }
@@ -107,7 +109,7 @@ app.post('/getDb', function (req,res){
 
 app.post('/delPhoto', function (req,res) {
   var delPhoto = req.body.str;
-  console.log("req body : " + delPhoto);
+  //console.log("req body : " + delPhoto);
   var fs = require('fs');
   var filePath = './photo/' + delPhoto;
   fs.unlinkSync(filePath);
@@ -115,8 +117,8 @@ app.post('/delPhoto', function (req,res) {
 })
 
 app.post('/upload', function(req, res) {
-  console.log("req.files : " + req.data);
-  console.log(req.files.pic.name);
+  //console.log("req.files : " + req.data);
+  //console.log(req.files.pic.name);
   let sampleFile = req.files.pic;
   if (Object.keys(req.files).length == 0) {
     res.send("Error format");
@@ -130,15 +132,18 @@ app.post('/upload', function(req, res) {
   });
 });
 
-app.get('/admin', auth, function(req,res){
+app.get('/admin', function(req,res){
   res.sendFile(__dirname + '/admin.html');
+  //res.end();
 })
 
 app.get('/logout', (req, res) => {
+  //res.sendFile(__dirname + '/main.html');
   req.logOut();
 
   req.session.destroy(function (err) {
         res.redirect('/');
+    //    res.sendFile(__dirname + '/main.html')
     });
 });
 

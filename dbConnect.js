@@ -5,16 +5,14 @@ addUser : function(req,res)
 {
 
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017/";
+const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?retryWrites=true";
 const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
-//let users = [{username: req.body.name, password: req.body.password, email: req.body.email }];
-//console.log(req.body.clock)
 mongoClient.connect(function(err, client){
 
     const db = client.db("MyDatabase");
     const collection = db.collection("userInfo");
-
+    console.log(req.body.name);
     collection.find({username: req.body.name}).toArray(function(err, results){
 
         if(results.length > 0){
@@ -30,16 +28,7 @@ mongoClient.connect(function(err, client){
           });
         }
 
-
-    /*collection.insertOne({username: req.body.name, password: req.body.password, email: req.body.email }, function(err, results){
-
-        console.log(results);
-        res.sendFile(__dirname + '/home.html');
-        client.close();
-    });*/
-
-
-    });
+  });
 
 });
 
@@ -49,8 +38,7 @@ mongoClient.connect(function(err, client){
 findUser : function(req,res)
 {
   const MongoClient = require("mongodb").MongoClient;
-  //console.log("name : " + req.body.name);
-  const url = "mongodb://localhost:27017/";
+  const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?retryWrites=true";
   const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
   mongoClient.connect(function(err, client){
@@ -62,8 +50,7 @@ findUser : function(req,res)
 
       collection.find({username: req.body.name}).toArray(function(err, results){
 
-          //console.log("results email : " + results[0].email);
-          res.send(JSON.stringify(results[0]));
+          res.send(results[0]);
           client.close();
       });
   });
