@@ -7,31 +7,90 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Your gallery</title>
 
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="css/mdb.min.css" rel="stylesheet">
-
-  <link href="css/style.css" rel="stylesheet">
-
-
   <style>
 
   body{
-
     background-image: url('/public/background.jpg');
+    font-family: Roboto,sans-serif;
+    font-weight: 200;
+    margin: 0;
   }
 
 
-  ul{
-    width: 600px;
+  .header{
+    width: 100%;
+    height: 56px;
+    background-color: #3F51B5;
   }
 
-  li{
-    width: 150px;
-    text-align: center;
+  .link{
+    height: 56px;
+    width: 700px;
+    float: left;
   }
+
+  li {
+   list-style-type: none;
+  }
+
+  ul li {
+  display: inline;
+  }
+
+  .item a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .na{
+    padding-top: 18px;
+  }
+
+  .item{
+   font-size: 16px;
+   padding: 5px 24px;
+  }
+
+  .item a:hover{
+   color: rgba(255,255,255,.75);
+  }
+
+  .social{
+   float: right;
+   width: 350px;
+   height: 60px;
+  }
+
+  .nav-item1{
+   padding: 5px 37px;
+  }
+
+  .navbar-nav1{
+   padding-top: 18px;
+  }
+
+  .fab{
+   color: #fff;
+  }
+
+  .fa{
+   font-size: 1.75rem;
+   font-weight: 900;
+   line-height: 1;
+  }
+
+  .fab:hover{
+   color: rgba(255,255,255,.75);
+  }
+
 
   .home{
      text-align: center;
@@ -39,9 +98,12 @@
      font-size: 2rem;
      width: 500px;
      margin: 0 auto;
-     margin-top: 12%;
+     margin-top: 7%;
   }
 
+  .carousel{
+    margin-top: 4%;
+  }
   .control{
     margin: 0 auto;
     width: 30px;
@@ -74,57 +136,55 @@
 
 <body>
 
-<header>
+  <div class="header">
 
-  <nav class="navbar navbar-expand-lg navbar-dark indigo">
-    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Main</a>
+    <div class="link">
+      <ul class="na">
+        <li class="item">
+          <a class="" href="/">Main</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        <li class="item">
+          <a class="" href="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/log">Log in</a>
+        <li class="item">
+          <a class="" href="/log">Log in</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/singup">Sign Up</a>
+        <li class="item">
+          <a class="" href="/singup">Sign Up</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery">Gallery</a>
+        <li class="item">
+          <a class="" href="/gallery">Gallery</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/video">Video</a>
+        <li class="item">
+          <a class="" href="/video">Video</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <li class="item">
+          <a class="" href = "/contact">Contact</a>
         </li>
       </ul>
     </div>
-  </nav>
+     <div class="social">
+       <ul class="navbar-nav1">
+          <li class="nav-item1">
+            <a class="" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="nav-item1">
+            <a class="" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item1">
+            <a class="" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+     </div>
+
+  </div>
+
   <div class="logOut">
      <p class="p"><a href="/logout" class="href">
          Log Out</a></p>
    </div>
     <div class="home">
-      <h1>Welcome to gallery!</h1>
+      <h1>Welcome to your gallery!</h1>
     </div>
 
     <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -261,15 +321,6 @@
 
     </div>
 
-</header>
-
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
-  <script type="text/javascript" src="js/popper.min.js"></script>
-
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="js/mdb.js"></script>
 </body>
 
 </html>

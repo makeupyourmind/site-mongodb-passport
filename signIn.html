@@ -4,47 +4,135 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Log In</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="css/mdb.min.css" rel="stylesheet">
-
-  <link href="css/style.css" rel="stylesheet">
 
    <style>
     body{
       background-image: url('/public/background.jpg');
+      font-family: Roboto,sans-serif;
+      font-weight: 200;
+      margin: 0;
     }
 
+    .header{
+      width: 100%;
+      height: 56px;
+      background-color: #3F51B5;
+    }
+
+    .link{
+      height: 56px;
+      width: 700px;
+      float: left;
+
+    }
+
+    li {
+     list-style-type: none;
+    }
+
+    ul li {
+    display: inline;
+    }
+
+    .item a{
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .na{
+      padding-top: 5px;
+    }
+
+   .item{
+     font-size: 16px;
+     padding: 5px 24px;
+   }
+
+   .item a:hover{
+     color: rgba(255,255,255,.75);
+   }
+
    .form{
-     width: 350px;
+     width: 400px;
      margin: 10% auto;
    }
 
-   ul{
-     width: 600px;
-   }
+    form p{
+      text-align: center;
+      font-size: 1.5rem;
+    }
 
-   li{
-     width: 150px;
-     text-align: center;
-   }
+    .md-form{
+      height: 60px;
+      width: 390px;
+      margin: 0 auto;
+    }
 
-   .md-form label{
-     color:#333333;
-   }
+    input{
+      background-color: transparent;
+      border-top: 0px solid grey;
+      border-left: 0px solid grey;
+      border-right: 0px solid grey;
+      border-bottom: 1px solid #ced4da;
+      width: 350px;
+      height: 25px;
+      font-size: 16px;
+      outline: 0;
+      margin-left: 10px;
+    }
 
-   .navbar .nav-flex-icons{
-     width: 300px;
-   }
+    input:active, input:focus{
+      background-color: transparent;
+      border-top: 0px solid grey;
+      border-left: 0px solid grey;
+      border-right: 0px solid grey;
+      border-bottom: 2px solid #4285f4;
 
-   #success{
+    }
+
+    .text{
+      float: right;
+      width: 130px;
+      font-size: 14px;
+
+    }
+
+    .log{
+      width: 100%;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .btn{
+      background: #4285F4;
+      height: 35px;
+      width: 250px;
+      border: none;
+      color: #fff;
+      font-size: 12px;
+      cursor:pointer;
+      margin: 0 auto;
+      text-transform: uppercase;
+    }
+
+    .Reg{
+      text-align: center;
+      width: 250px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .Reg2{
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    }
+
+    #success{
      display: none;
      width: 346px;
      font-size: 16px;
@@ -55,47 +143,88 @@
      border-radius: 10px;
    }
 
+   .social{
+     float: right;
+     width: 350px;
+     height: 60px;
+   }
+
+   .nav-item{
+     padding: 5px 37px;
+   }
+
+   .navbar-nav{
+     padding-top: 5px;
+   }
+
+   .fab{
+     color: #fff;
+   }
+
+   .fa{
+     font-size: 1.75rem;
+     font-weight: 900;
+     line-height: 1;
+   }
+
+   .forgot{
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+   }
+
+   .py-4{
+     padding-bottom: 1.5rem!important;
+     font-weight: 500;
+   }
+
+   .fab:hover{
+     color: rgba(255,255,255,.75);
+   }
+
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #333333;
+   }
+
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #333333;
+  }
    </style>
 
 </head>
 
 <body ng-app="myApp" ng-controller = "myController">
 
-  <!-- Card -->
 
-  <header>
+  <div class="header">
 
-    <nav class="navbar navbar-expand-lg navbar-dark indigo">
-      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Main</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/log">Log In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/singup">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/video">Video</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href = "/contact">Contact</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav nav-flex-icons">
+    <div class="link">
+      <ul class="na">
+        <li class="item">
+          <a class="" href="/">Main</a>
+        </li>
+        <li class="item">
+          <a class="" href="/home">Home</a>
+        </li>
+        <li class="item">
+          <a class="" href="/log">Log in</a>
+        </li>
+        <li class="item">
+          <a class="" href="/singup">Sign Up</a>
+        </li>
+        <li class="item">
+          <a class="" href="/gallery">Gallery</a>
+        </li>
+        <li class="item">
+          <a class="" href="/video">Video</a>
+        </li>
+        <li class="item">
+          <a class="" href = "/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+     <div class="social">
+       <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
             <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
           </li>
@@ -106,35 +235,34 @@
             <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
           </li>
         </ul>
-      </div>
-    </nav>
+     </div>
 
-  </header>
+  </div>
 
         <div class="form">
           <form id = "myForm">
-              <p class="h4 text-center py-4">Log in</p>
-
+              <p class="py-4">Log in</p>
               <div class="md-form">
                   <i class="fa fa-user prefix black-text"></i>
-                  <input autofocus required type="text" id="materialFormCardNameEx" ng-model = "name" name = "username" class="form-control">
-                  <label for="materialFormCardNameEx">Your name</label>
+                  <input autocomplete="off" autofocus required type="text" id="materialFormCardNameEx"
+                  ng-model = "name" name = "username" class="form-control" placeholder="Your name">
+                  <!--<label class="label" for="materialFormCardNameEx">Your name</label>-->
               </div>
 
               <div class="md-form">
                   <i class="fa fa-lock prefix black-text"></i>
-                  <input required type="password" id="materialFormCardPasswordEx" name="password" class="form-control">
-                  <label for="materialFormCardPasswordEx">Your password</label>
+                  <input required type="password" id="materialFormCardPasswordEx"
+                  name="password" class="form-control" placeholder="Your password">
+                  <!--<label for="materialFormCardPasswordEx">Your password</label>-->
               </div>
-            <div style = "float: right">
-
-               <a href="/forgotPassword">Forgot password?</a>
+            <div class="text">
+               <a class="forgot" href="/forgotPassword">Forgot password?</a>
            </div>
-              <div class="text-center py-4 mt-3">
-                  <button class="btn btn-primary" type="submit">Log in</button>
+              <div class="log">
+                  <button class="btn" type="submit">Log in</button>
               </div>
-              <div style = "text-align: center">Not a member?
-                  <a href="/singup">Register</a>
+              <div class="Reg">Not a member?
+                  <a class = "Reg2" href="/singup">Register</a>
               </div>
           </form>
             <p type = "text" id = "success"></p>
@@ -168,13 +296,6 @@
           });
           </script>
 
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
-  <script type="text/javascript" src="js/popper.min.js"></script>
-
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="js/mdb.js"></script>
 </body>
 
 </html>

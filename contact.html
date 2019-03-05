@@ -10,142 +10,246 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="css/mdb.min.css" rel="stylesheet">
-
-  <!--<link href="css/style.css" rel="stylesheet">-->
-
-
   <style>
   body{
     background-image: url('/public/background.jpg');
-    background-repeat: no-repeat;
+    font-family: Roboto,sans-serif;
+    font-weight: 200;
+    margin: 0;
   }
 
-  body,html{
-    height: 100%;
+  .header{
     width: 100%;
+    height: 56px;
+    background-color: #3F51B5;
   }
 
-  .form{
-    width: 1000px;
-    margin: 0 auto;
-    margin-top: 10%;
+  .link{
+    height: 56px;
+    width: 700px;
+    float: left;
   }
 
-  @media(max-width : 1290px)
-  {
-    .form
-    {
-      width: 500px;
-      margin: 0 auto;
-      margin-top: 10%;
+  li {
+   list-style-type: none;
+  }
+
+  ul li {
+  display: inline;
+  }
+
+  .item a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .na{
+    padding-top: 5px;
+  }
+
+ .item{
+   font-size: 16px;
+   padding: 5px 24px;
+ }
+
+ .item a:hover{
+   color: rgba(255,255,255,.75);
+ }
+
+ .social{
+   float: right;
+   width: 350px;
+   height: 60px;
+ }
+
+ .nav-item{
+   padding: 5px 37px;
+ }
+
+ .navbar-nav{
+   padding-top: 5px;
+ }
+
+ .fab{
+   color: #fff;
+ }
+
+ .fa{
+   font-size: 1.75rem;
+   font-weight: 900;
+   line-height: 1;
+ }
+
+   input{
+     background-color: transparent;
+     border-top: 0px solid grey;
+     border-left: 0px solid grey;
+     border-right: 0px solid grey;
+     border-bottom: 1px solid #ced4da;
+     width: 350px;
+     height: 25px;
+     font-size: 16px;
+     outline: 0;
+     margin-left: 10px;
+   }
+
+   textarea {
+    background-color: transparent;
+    border-top: 0px solid grey;
+    border-left: 0px solid grey;
+    border-right: 0px solid grey;
+    border-bottom: 1px solid #ced4da;
+    overflow-y: hidden;
+    padding: 1.5rem 0;
+    outline: 0;
+    font-size: 16px;
+    margin-left: 40px;
+    width: 770px;
+    font-family: Roboto,sans-serif;
+    resize: none;
+  }
+
+   input:active, input:focus, textarea:active, textarea:focus{
+     background-color: transparent;
+     border-top: 0px solid grey;
+     border-left: 0px solid grey;
+     border-right: 0px solid grey;
+     border-bottom: 2px solid #4285f4;
+   }
+
+    .name input{
+      margin-left: 18px;
     }
-  }
+   .section{
+     width: 960px;
+     height: 470px;
+     margin: 0 auto;
+     margin-top: 7%;
+     margin-bottom: 1.5rem!important;
+   }
 
-  ul{
-    width: 600px;
-  }
+   .name{
+     width: 400px;
+     float: left;
+   }
 
-  li{
-    width: 150px;
-    text-align: center;
-  }
+   .email{
+     width: 400px;
+     float: right;
+   }
 
-  .modal-footer .additional-option{
-    margin-top: 0;
-    text-align:center
-  }
+   .subject{
+     width: 400px;
+     margin-top: 60px;
+   }
 
-  footer{
-   width: 100%;
-   position: absolute;
-  }
+   .textarea{
+     margin-top: 30px;
+     width: 810px;
+   }
 
-  .server{
-    color: grey;
-  }
+   .data{
+     width: 820px;
+     margin-top: 20px;
+     float: left;
+     height: 250px;
+   }
 
-  #message,#subject,#email,#name{
-    color: #000000;
-  }
+   .location{
+     width: 130px;
+     height: 270px;
+     float: right;
+     margin: 0 auto;
+     text-align: center;
+   }
 
-  .form-control::-webkit-input-placeholder{
+   .btn{
+     background: #4285F4;
+     height: 35px;
+     width: 150px;
+     border: none;
+     color: #fff;
+     font-size: 12px;
+     cursor:pointer;
+     text-transform: uppercase;
+     margin: 10px 0 0 20px;
+   }
+
+   .hi{
+     text-align: center;
+     font-weight: 700!important;
+     font-size: 250%;
+   }
+
+   .mb{
+     margin-bottom: 3rem!important;
+     width: 75%;
+     text-align: center;
+     margin: 0 auto;
+   }
+
+   .fab:hover{
+     color: rgba(255,255,255,.75);
+   }
+
+   .list{
+     padding: 3px 10px;
+   }
+
+   #server{
+     display: none;
+     color: white;
+     width: 300px;
+     font-size: 16px;
+     margin: 0 auto;
+     background:  #4285F4;
+     border-radius: 10px;
+     text-align: center;
+     margin-top: 20px;
+   }
+
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #333333;
-    font-weight:300
-  }
+   }
 
-  .form-control::placeholder{
+  ::-moz-placeholder { /* Firefox 19+ */
     color: #333333;
-    font-weight:300
   }
-
-  .md-form label{
-    color:#333333;
-  }
-
-  .dialog{
-    display: none;
-    margin-top: -140px;
-    height: 120px;
-    position: absolute;
-    width: 100%;
-  }
-
-  .modal-dialog{
-    margin-top: 0;
-  }
-
-  .grand{
-    max-height: 970px;
-    width: 100%;
-  }
-
-  .navbar .nav-flex-icons{
-    width: 300px;
-  }
-
-
   </style>
 
 </head>
 
 <body>
 
-  <header>
+  <div class="header">
 
-    <nav class="navbar navbar-expand-lg navbar-dark indigo">
-      <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Main</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/log">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/singup">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/video">Video</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href = "/contact">Contact</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav nav-flex-icons">
+    <div class="link">
+      <ul class="na">
+        <li class="item">
+          <a class="" href="/">Main</a>
+        </li>
+        <li class="item">
+          <a class="" href="/home">Home</a>
+        </li>
+        <li class="item">
+          <a class="" href="/log">Log in</a>
+        </li>
+        <li class="item">
+          <a class="" href="/singup">Sign Up</a>
+        </li>
+        <li class="item">
+          <a class="" href="/gallery">Gallery</a>
+        </li>
+        <li class="item">
+          <a class="" href="/video">Video</a>
+        </li>
+        <li class="item">
+          <a class="" href = "/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+     <div class="social">
+       <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
             <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
           </li>
@@ -156,110 +260,66 @@
             <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
           </li>
         </ul>
-      </div>
-    </nav>
-
-  </header>
-
-<div class="grand">
-  <div id = "dialog" class = "dialog">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Success</h5>
-         </div>
-         <div class="modal-body">
-           Your message were sent to admin
-         </div>
-       </div>
      </div>
-   </div>
-  <!--Section: Contact v.2-->
-<section class="form mb-4">
 
-   <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+  </div>
 
-   <p class="text-center w-responsive mx-auto mb-5">Do you have any questions?
+<div class="section">
+
+   <h2 class="hi">Contact us</h2>
+
+   <p class="mb">Do you have any questions?
      Please do not hesitate to contact us directly. Our team will come back to you within
        a matter of hours to help you.</p>
 
-   <div class="row">
-
-       <div class="col-md-9 mb-md-0 mb-5">
+       <div class="form">
            <form id="myForm">
+             <div class="data">
+              <div class="name">
+                  <i class="fa fa-user prefix black-text"></i>
+                  <input autofocus required type="text" id="name" name="name" class="form-control" placeholder="Your name">
+              </div>
 
-               <div class="row">
-
-                   <div class="col-md-6">
-                       <div class="md-form mb-0">
-                         <i class="fa fa-user prefix black-text"></i>
-                           <input autofocus required type="text" id="name" name="name" class="form-control">
-                            <label for="name">Your name</label>
-                       </div>
-                   </div>
-
-                   <div class="col-md-6">
-                       <div class="md-form mb-0">
-                         <i class="fa fa-envelope prefix black-text"></i>
-                           <input required type="text" id="email" name="email" class="form-control">
-                            <label for="email">Your email</label>
-                       </div>
-                   </div>
-
+              <div class="email">
+                <i class="fa fa-envelope prefix black-text"></i>
+                  <input required type="text" id="email" name="email" class="form-control" placeholder="Your email">
+              </div>
+               <div class="subject">
+                 <i class="fa fa-keyboard prefix black-text"></i>
+                    <input required type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
                </div>
 
-               <div class="row">
-                   <div class="col-md-12">
-                       <div class="md-form mb-0">
-                         <i class="fa fa-keyboard prefix black-text"></i>
-                           <input required type="text" id="subject" name="subject" class="form-control">
-                           <label for="subject">Subject</label>
-                       </div>
-                   </div>
+               <div class="textarea">
+                    <i class="fa fa-pen prefix black-text"></i>
+                    <textarea required type="text" id="message" name="message" rows="2"
+                    class="form-control md-textarea" placeholder="Your message"></textarea>
                </div>
+            </div>
 
-               <div class="row">
+            <div class="location">
+                <ul class="list">
+                    <li class="li"><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>Your Adress</p>
+                    </li>
 
-                   <div class="col-md-12">
+                    <li class="li"><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>Your Phone</p>
+                    </li>
 
-                       <div class="md-form">
-                         <i class="fa fa-pen prefix black-text"></i>
-                           <textarea required type="text" id="message" name="message" rows="2"
-                           class="form-control md-textarea"></textarea>
-                           <label for="message">Your message</label>
-                       </div>
+                    <li class="li"><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>Your E-mail</p>
+                    </li>
+                </ul>
+            </div>
 
-                   </div>
-               </div>
-
-               <div class="text-center text-md-left">
+               <div class="send">
                    <button id = "button" onclick="check()" type = "submit"
-                   class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">Send</button>
+                   class="btn" data-toggle="modal" data-target="#basicExampleModal">Send</button>
                </div>
-            <div id = "server"></div>
            </form>
-           <div class="status"></div>
-       </div>
-
-       <div class="col-md-3 text-center">
-           <ul class="list-unstyled mb-0">
-               <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                   <p>Your Adress</p>
-               </li>
-
-               <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                   <p>Your Phone</p>
-               </li>
-
-               <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                   <p>Your E-mail</p>
-               </li>
-           </ul>
-       </div>
+           <div id = "server"></div>
 
    </div>
-
-</section>
 
 </div>
 
@@ -275,9 +335,10 @@ $('#myForm').submit(function(e) {
       success: function(data){
         if(data)
         {
-          $("#dialog").css({'display': 'block'})
-          setTimeout(function(){ $('#dialog').hide(); }, 3000);
-
+          document.getElementById("server").style.display = 'block';
+          $("#server").html('Your message were sent to admin');
+          setTimeout(function(){ $('#server').hide(); }, 3000);
+          setTimeout(function(){ $('#server').show(); }, 500);
           setTimeout(function(){
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
@@ -292,13 +353,6 @@ $('#myForm').submit(function(e) {
 });
 </script>
 
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
-  <script type="text/javascript" src="js/popper.min.js"></script>
-
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="js/mdb.js"></script>
 </body>
 
 </html>

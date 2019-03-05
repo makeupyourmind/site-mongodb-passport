@@ -9,30 +9,91 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!--<link href="css/mdb.min.css" rel="stylesheet">-->
-
-  <link href="css/style.css" rel="stylesheet">
-
-
   <style>
 
   body{
-
     background-image: url('/public/background.jpg');
+    font-family: Roboto,sans-serif;
+    font-weight: 200;
+    margin: 0;
   }
 
-   .main{
-      text-align: center;
-      color: #2b3463;
-      font-size: 2vw;
-      width: 500px;
-      margin: 0 auto;
-      margin-top: 7%;
-   }
+  .header{
+    width: 100%;
+    height: 56px;
+    background-color: #3F51B5;
+  }
 
-   h2{
+  .link{
+    height: 56px;
+    width: 700px;
+    float: left;
+  }
+
+  li {
+   list-style-type: none;
+  }
+
+  ul li {
+  display: inline;
+  }
+
+  .item a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .na{
+    padding-top: 5px;
+  }
+
+ .item{
+   font-size: 16px;
+   padding: 5px 24px;
+ }
+
+ .item a:hover{
+   color: rgba(255,255,255,.75);
+ }
+
+ .social{
+   float: right;
+   width: 350px;
+   height: 60px;
+ }
+
+ .nav-item{
+   padding: 5px 37px;
+ }
+
+ .navbar-nav{
+   padding-top: 5px;
+ }
+
+ .fab{
+   color: #fff;
+ }
+
+ .fa{
+   font-size: 1.75rem;
+   font-weight: 900;
+   line-height: 1;
+ }
+
+ .fab:hover{
+   color: rgba(255,255,255,.75);
+ }
+
+ .main{
+     text-align: center;
+     color: #2b3463;
+     font-size: 2vw;
+     width: 500px;
+     margin: 0 auto;
+     margin-top: 7%;
+  }
+
+  h2{
      font-size: 1.5vw;
    }
 
@@ -40,94 +101,67 @@
      font-size: 1.1vw;
    }
 
-  .about{
+   .about{
     margin-top: 70px;
   }
 
-  .info{
-   margin-top: 50px;
-  }
-
-  ul{
-    width: 600px;
-  }
-
-  li{
-    width: 150px;
-    text-align: center;
-  }
-
-  .navbar .nav-flex-icons{
-    width: 300px;
-  }
-
-  header{
-    background-color: #3F51B5;
-    height: 56px;
-  }
-
-  .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-    font-family: Roboto,sans-serif;
-   }
-   .navbar{
-     font-family: Roboto,sans-serif;
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #333333;
    }
 
-   strong {
-    font-weight: normal;
-   }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: #333333;
+    }
   </style>
 
 </head>
 
 <body>
 
-<header>
+  <div class="header">
 
-  <nav class="navbar navbar-expand-lg navbar-dark indigo">
-    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Main</a>
+    <div class="link">
+      <ul class="na">
+        <li class="item">
+          <a class="" href="/">Main</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home">Home</a>
+        <li class="item">
+          <a class="" href="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/log">Log in</a>
+        <li class="item">
+          <a class="" href="/log">Log in</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/singup">Sign Up</a>
+        <li class="item">
+          <a class="" href="/singup">Sign Up</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery">Gallery</a>
+        <li class="item">
+          <a class="" href="/gallery">Gallery</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/video">Video</a>
+        <li class="item">
+          <a class="" href="/video">Video</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <li class="item">
+          <a class="" href = "/contact">Contact</a>
         </li>
       </ul>
     </div>
-  </nav>
+     <div class="social">
+       <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://twitter.com"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href = "https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+     </div>
+
+  </div>
+
+
     <div class="main">
       <div class="info">
       <h2>Example site on Node.js using Passport.js, Ajax, Angular, Mongodb</h2>
@@ -136,19 +170,10 @@
       <h3>On this site you can create your account, set your profile photo, delete you account
         if you want, write a message to admin or you can logged in system by 'admin' and 'admin' and view all site users.
         This site uses the session, you can be in the system for a certain time.
-        At the end of your session, you will need to re-login the system.</h3>
+        At the end of your session, you will need to re-login the system. Pages that use the session are homepage, gallery, video</h3>
       </div>
     </div>
 
-</header>
-
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
-  <script type="text/javascript" src="js/popper.min.js"></script>
-
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="js/mdb.js"></script>
 </body>
 
 </html>

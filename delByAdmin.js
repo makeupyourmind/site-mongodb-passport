@@ -19,10 +19,8 @@ delByAdmin : function(req,res)
       db.collection("userInfo").deleteOne({_id: new mongodb.ObjectID( req.query.id)}, function(err, result){
 
          console.log(result);
-         //var fs = require('fs');
-         //var filePath = './photo/' + req.body.delimg;
-         //fs.unlinkSync(filePath);
-         //res.send("Your account was deleted.You will be redirected to the main page");
+         res.send("ok");
+
          client.close();
       });
   });

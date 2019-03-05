@@ -147,10 +147,6 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.get('/test', function(req,res)
-{
-  res.render(__dirname + '/views/test');
-})
 
 app.get('/', (req, res, next) => {
  res.sendFile(__dirname + '/main.html');
@@ -186,7 +182,7 @@ app.get('/contact', (req, res, next) => {
  res.sendFile(__dirname + '/contact.html');
 });
 
-app.get('/gallery', auth, (req, res, next) => {
+app.get('/gallery', auth , (req, res, next) => {
  res.sendFile(__dirname + '/gallery.html');
 });
 
@@ -194,6 +190,23 @@ app.get('/video', auth, (req, res, next) => {
  res.sendFile(__dirname + '/video.html');
 });
 
-app.get('/home', auth, (req, res, next) => {
+app.get('/home',  (req, res, next) => {
  res.sendFile(__dirname + '/home.html');
 });
+
+app.post('/setPhoto', (req, res) => {
+  const Filehound = require('filehound');
+  Filehound.create()
+  .ext('jpg', 'jpeg', 'png', 'gif')
+  .paths("photo")
+  .match("*photo/" + req.body.photo + "*")
+  .find((err, htmlFiles) => {
+    if (err) return console.error("handle err", err);
+    var temp = [];
+    temp.push(htmlFiles);
+    if(temp != '' ){
+        res.send("ok");
+     }
+   });
+
+})
