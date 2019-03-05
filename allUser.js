@@ -3,7 +3,7 @@ module.exports = {
 allUser : function(req,res)
 {
   const MongoClient = require("mongodb").MongoClient;
-  const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test";
+  const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?ssl=true";
   const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
   mongoClient.connect(function(err, client){

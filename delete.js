@@ -6,7 +6,7 @@ delete : function(req,res)
   //console.log("image : " + req.body.delimg);
   if(req.body.delimg == ''){
     console.log("НЕТ ФОТО У ПОЛЬЗОВАТЕЛЯ");
-    const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?retryWrites=true";
+    const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?ssl=true&retryWrites=true";
     const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
     mongoClient.connect(function(err, client){
