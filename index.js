@@ -126,8 +126,8 @@ app.post('/upload', function(req, res) {
 
   var path = './photo/' + sampleFile.name;
   sampleFile.mv('./photo/' + sampleFile.name, function(err) {
-    if (err)
-      return res.status(500).send(err);
+    //if (err)
+    //  return res.status(500).send(err);
     res.send(sampleFile.name);
   });
 });
