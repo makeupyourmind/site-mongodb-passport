@@ -132,7 +132,7 @@ app.post('/upload', function(req, res) {
   });
 });
 
-app.get('/admin', function(req,res){
+app.get('/admin', auth, function(req,res){
   res.sendFile(__dirname + '/admin.html');
   //res.end();
 })
@@ -190,7 +190,7 @@ app.get('/video', auth, (req, res, next) => {
  res.sendFile(__dirname + '/video.html');
 });
 
-app.get('/home',  (req, res, next) => {
+app.get('/home', auth, (req, res, next) => {
  res.sendFile(__dirname + '/home.html');
 });
 
