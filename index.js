@@ -190,7 +190,7 @@ app.get('/video', auth, (req, res, next) => {
  res.sendFile(__dirname + '/video.html');
 });
 
-app.get('/home', auth, (req, res, next) => {
+app.get('/home', (req, res, next) => {
  res.sendFile(__dirname + '/home.html');
 });
 
