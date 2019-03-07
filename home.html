@@ -372,12 +372,14 @@ $(document).ready(function(){
     dataType : 'text',
     data: {photo: get},
     success: function(data){
-       //alert("data : " + data);
-       if(data){
+       alert("data : " + data);
+       /*if(data){
          $('#get').attr('src', data);
-       }
-       else {
+       }*/
+       if(data == 'not ok') {
          $('#get').attr('src', '');
+       }else {
+         $('#get').attr('src', data);
        }
     }
   });

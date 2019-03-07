@@ -196,7 +196,7 @@ app.get('/home', (req, res, next) => {
 
 app.post('/setPhoto', (req, res) => {
   const Filehound = require('filehound');
-
+  console.log(req.body.photo);
   Filehound.create()
   .ext('jpg', 'jpeg', 'png', 'gif')
   .paths("photo")
@@ -209,6 +209,9 @@ app.post('/setPhoto', (req, res) => {
     if(temp != '' ){
         var avatar = temp.toString().split('\\').pop();
         res.send(avatar);
+     }
+     else {
+       res.send("not ok");
      }
    });
 
