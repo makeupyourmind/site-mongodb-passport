@@ -258,7 +258,7 @@
   <div class="photo">
     <p>Load your avatar</p>
     <div class="img">
-      <img src = "" id = "get" width="90px" height="90px" class="avatar img-circle img-thumbnail" alt="Here can be your photo">
+      <img src = "" id = "get" width="90" height="90" class="avatar img-circle img-thumbnail" alt="Here can be your photo">
     </div>
   </div>
   <p id = "photo"></p>
@@ -270,7 +270,7 @@
 </div>
 <div class="page">
   <div class="info">
-    <span>Your name : </span> <span name = "userName" id = "userName"></span>
+    <span>Your name : </span> <span id = "userName"></span>
     <br>
     <span>Your password : </span> <span id = "userPassword"></span>
     <br>
@@ -281,9 +281,9 @@
      <button id = "del" class="btndanger" type="submit">Delete account</button>
   </div>
 </div>
- <div style = "display: none">
-  <div id="name" name = "name"><div>
-</div>
+   <div style = "display: none">
+    <div id="name"></div>
+   </div>
 </div>
 <p id = "send">t</p>
 
@@ -300,14 +300,16 @@ function Validate(){
     return false;
   }
   else {
-
+     //alert($('input[type=file]').val().split('.').pop().toLowerCase());
+     var ext = $('input[type=file]').val().split('.').pop().toLowerCase();
+     $('#ext').html(ext);
     event.preventDefault();
 
     var formData = new FormData();
 
     var namePhoto = $('#userName').text();
 
-    formData.append('pic', pic.files[0], namePhoto + '.jpg');
+    formData.append('pic', pic.files[0], namePhoto + '.' + ext);
 
         $.ajax({
         url: '/upload',
@@ -360,10 +362,10 @@ var send = img.getAttribute('src');
 
 <script>
 $(document).ready(function(){
+
   var get = location.search.substr(1);
   document.getElementById('formName').value = document.getElementById('name').innerHTML = get;
-  //$('#get').attr('src', get + '.jpg');
-  //alert("get : " + get);
+
   $.ajax({
     url : '/setPhoto',
     type : 'POST',
@@ -371,15 +373,15 @@ $(document).ready(function(){
     data: {photo: get},
     success: function(data){
        //alert("data : " + data);
-       if(data == 'ok'){
-         $('#get').attr('src', get + '.jpg');
+       if(data){
+         $('#get').attr('src', data);
        }
        else {
          $('#get').attr('src', '');
        }
     }
   });
-  //$('#get').attr('src', get + '.jpg');
+
 })
 </script>
 

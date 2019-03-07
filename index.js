@@ -196,6 +196,7 @@ app.get('/home', auth, (req, res, next) => {
 
 app.post('/setPhoto', (req, res) => {
   const Filehound = require('filehound');
+
   Filehound.create()
   .ext('jpg', 'jpeg', 'png', 'gif')
   .paths("photo")
@@ -204,8 +205,10 @@ app.post('/setPhoto', (req, res) => {
     if (err) return console.error("handle err", err);
     var temp = [];
     temp.push(htmlFiles);
+
     if(temp != '' ){
-        res.send("ok");
+        var avatar = temp.toString().split('\\').pop();
+        res.send(avatar);
      }
    });
 
