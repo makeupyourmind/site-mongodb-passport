@@ -295,6 +295,7 @@ function Validate(){
   if(send != ''){
     alert('You can download only one photo');
   }
+  else {
   if($.inArray($('#pic').val().split('.').pop().toLowerCase(), fileExtensions) == -1 ){
     alert("Photo should be next extensions : .jpg, .jpeg, .bmp, .gif, .png");
     return false;
@@ -330,7 +331,8 @@ function Validate(){
 
     });
 
-  }
+   }
+ }
 }
 
 </script>
