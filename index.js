@@ -20,7 +20,7 @@ app.use(
     cookie: {
       path: '/',
       httpOnly: true,
-      maxAge: 60000,
+      maxAge: 300000,
     },
     resave: false,
     saveUninitialized: false,
@@ -190,7 +190,7 @@ app.get('/video', auth, (req, res, next) => {
  res.sendFile(__dirname + '/video.html');
 });
 
-app.get('/home', (req, res, next) => {
+app.get('/home', auth, (req, res, next) => {
  res.sendFile(__dirname + '/home.html');
 });
 
