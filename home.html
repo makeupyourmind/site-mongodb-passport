@@ -373,15 +373,15 @@ $(document).ready(function(){
     data: {photo: get},
     success: function(data){
        alert("data : " + data);
-       //var temp = data.toString().val().split('/').pop();
-       alert("temp : " + 'temp');
+       var temp = data.split('/').pop();
+       alert("temp : " + temp);
        /*if(data){
          $('#get').attr('src', data);
        }*/
        if(data == 'not ok') {
          $('#get').attr('src', '');
        }else {
-         $('#get').attr('src', data);
+         $('#get').attr('src', temp);
        }
     }
   });
