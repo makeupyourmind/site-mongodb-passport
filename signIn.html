@@ -187,9 +187,16 @@
     color: #333333;
    }
 
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: #333333;
-  }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: #333333;
+    }
+
+    @-moz-document url-prefix(){
+      .md-form{
+        height: 70px;
+      }
+    }
+
    </style>
 
 </head>
