@@ -42,6 +42,7 @@ app.use('/js', express.static('js'));
 app.use('/public', express.static('public'));
 app.use(express.static("public"));
 app.use(express.static("photo"));
+app.use(express.static("authFile"));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -82,6 +83,9 @@ passport.authenticate('local', function(err, user) {
 
 const auth = (req, res, next) => {
   if (req.isAuthenticated()) {
+    //console.log("сделал движение", req.user.username);
+     //console.log("is auth : " + req.path);
+     //res.redirect('/video');
     next();
   } else {
     req.session.returnTo = req.path;
@@ -91,7 +95,6 @@ const auth = (req, res, next) => {
 };
 
 app.get('/delByAdmin', function(req,res){
-
   delByAdmin.delByAdmin(req,res);
 })
 
@@ -182,21 +185,43 @@ app.get('/contact', (req, res, next) => {
  res.sendFile(__dirname + '/contact.html');
 });
 
+//var name = 'vasy';
+/*app.get('/test', auth, (req, res, next) => {
+  console.log(req);
+     res.redirect('/gallery.html?' + req.user.username);
+});*/
+
+//let i = 0;
 app.get('/gallery', auth , (req, res, next) => {
- res.sendFile(__dirname + '/gallery.html');
+  res.redirect('/gallery.html?' + req.user.username);
+  //res.sendFile(__dirname + '/gallery.html');
+
+  /*console.log("i : ", i);
+  if(i == 1){
+    res.sendFile(__dirname + '/gallery.html');
+    i = 0;
+  }
+  else {
+    res.redirect('/gallery?'+req.user.username);
+    i++;
+  }*/
+
+  //res.sendFile(__dirname + '/gallery.html');
 });
 
 app.get('/video', auth, (req, res, next) => {
- res.sendFile(__dirname + '/video.html');
+  res.redirect('/video.html?' + req.user.username);
+ //res.sendFile(__dirname + '/video.html');
 });
 
 app.get('/home', auth, (req, res, next) => {
- res.sendFile(__dirname + '/home.html');
+  res.redirect('/home.html?' + req.user.username);
+ //res.sendFile(__dirname + '/home.html');
 });
 
 app.post('/setPhoto', (req, res) => {
   const Filehound = require('filehound');
-  console.log(req.body.photo);
+  //console.log(req.body.photo);
   Filehound.create()
   .ext('jpg', 'jpeg', 'png', 'gif')
   .paths("photo")
