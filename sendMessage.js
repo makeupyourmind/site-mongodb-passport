@@ -5,7 +5,7 @@ sendMessage : function(req,res)
 {
   res.send("ok");
   const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey("");
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: 'marinanov040167@gmail.com',					//receiver's email
     from: req.body.email,			//sender's email

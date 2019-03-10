@@ -5,7 +5,7 @@ forgotPassword: function(req,res)
 {
 
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?ssl=true&retryWrites=true";
+const url = process.env.DATABASE_URL2 || "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/test?ssl=true&retryWrites=true";
 const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
 //let users = [{username: req.body.name, password: req.body.password, email: req.body.email }];
@@ -21,7 +21,7 @@ mongoClient.connect(function(err, client){
           console.log(results[0].password);
           res.send("ok");
           const sgMail = require('@sendgrid/mail');
-          sgMail.setApiKey("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");
+          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
           const msg = {
             to: req.body.email,					//receiver's email
             from: 'marinanov040167@gmail.com',			//sender's email
@@ -34,15 +34,6 @@ mongoClient.connect(function(err, client){
         {
           res.send("Error email");
         }
-
-
-    /*collection.insertOne({username: req.body.name, password: req.body.password, email: req.body.email }, function(err, results){
-
-        console.log(results);
-        res.sendFile(__dirname + '/home.html');
-        client.close();
-    });*/
-
 
     });
 
