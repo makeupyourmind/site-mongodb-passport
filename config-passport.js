@@ -13,7 +13,7 @@ passport.deserializeUser(function(id, cb) {
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.Passport || "mongodb+srv://test:test@cluster0-svpwv.mongodb.net/MyDatabase?ssl=true");
+mongoose.connect(process.env.Passport);
 //mongoose.connect('mongodb://test:test@Cluster0-shard-0/MyDatabase')
 const Schema = mongoose.Schema;
 const UserDetail = new Schema({
